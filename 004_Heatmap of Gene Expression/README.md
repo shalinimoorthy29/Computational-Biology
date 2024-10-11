@@ -2,13 +2,13 @@
 
 **Dataset Used**:  
 - Dataset: GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.csv (Gene Symbols)  
-- This dataset contains normalized gene expression counts (FPKM) across multiple samples. The gene IDs were converted to Gene Symbols using the DAVID tool.
+- This dataset contains normalized gene expression counts (FPKM) across multiple samples. 
 
 **Objectives**:  
 The objective of this analysis was to create a heatmap of gene expression data to visualize patterns of expression across multiple samples. Z-score normalization was applied to the data to focus on relative changes in expression, making it easier to compare the variation across genes and samples.
 
 **Stage of Analysis**:  
-1. **Data Preprocessing**: The normalized counts were prepared by converting gene IDs to Gene Symbols using DAVID and saving the data as a CSV file. The processed file was loaded for further analysis.
+1. **Data Preprocessing**: The normalized counts were loaded for analysis.
 
 2. **Log Transformation**: A log transformation was applied to the FPKM data to compress the range of values and make the differences in expression more interpretable. This is crucial when handling a dataset with a wide dynamic range in expression levels.
 
