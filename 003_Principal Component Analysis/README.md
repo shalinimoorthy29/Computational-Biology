@@ -10,7 +10,7 @@ The objective of this analysis was to apply Principal Component Analysis (PCA) o
 **Stage of Analysis**:  
 1. **Data Loading and Preparation**: The raw count data was loaded and prepared for PCA. This step ensured that the data was in the correct format for dimensionality reduction.
    
-2. **Variance Stabilizing Transformation**: The raw counts were processed using a variance-stabilizing transformation (VST) to ensure that the counts were more comparable across samples. This transformation helps adjust for the large dynamic range in RNA-seq data.
+2. **Variance Stabilising Transformation**: The raw counts were processed using a variance-stabilizing transformation (VST) to ensure that the counts were more comparable across samples. This transformation helps adjust for the large dynamic range in RNA-seq data.
    
 3. **PCA Execution**: PCA was applied to the transformed data, identifying principal components that captured the most variance in gene expression levels across samples.
 
