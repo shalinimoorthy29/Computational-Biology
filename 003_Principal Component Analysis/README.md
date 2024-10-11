@@ -2,7 +2,7 @@
 
 **Dataset Used**:  
 - Dataset: GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.tsv.gz  
-- This dataset contains RNA-seq raw counts across multiple samples from the GSE46056 dataset. The data was analyzed to investigate variations in gene expression levels across different experimental conditions.
+- This dataset contains normalised FPKM counts across multiple samples from the GSE46056 dataset. The data was analyzed to investigate variations in gene expression levels across different experimental conditions.
 
 **Objectives**:  
 The objective of this analysis was to apply Principal Component Analysis (PCA) on raw gene expression counts to understand the major sources of variance in the data. The PCA aimed to reduce dimensionality while preserving the most critical patterns of variation between samples.
