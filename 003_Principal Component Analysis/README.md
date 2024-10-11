@@ -19,4 +19,3 @@ PCA is a common tool for dimensionality reduction and visualization in gene expr
 
 **Conclusions**:  
 The PCA successfully reduced the dimensionality of the gene expression data, capturing significant variance in the first two principal components. The separation observed in the PCA plot provided insights into how different experimental conditions (e.g., treated vs. untreated) contributed to the variance in the dataset. This helped in identifying potential relationships between gene expression patterns and sample groupings.
-"""
