@@ -1,7 +1,7 @@
 # Data Science Portfolio 
 
 ## About me
-Hi! I'm Dr. Shalini Sankar! Welcome to my portfolio of data science and bioinformatics projects. This repository showcases my work and progress as I transition from a scientific research background into the field of data science. I hope to build a portfolio that spans diverse areas within data science, such as bioinformatics, computational biology, and machine learning.
+Hi! I'm Dr. Shalini Sankar! Welcome to my portfolio of data science and bioinformatics projects. I'm a scientific professional with a PhD in cancer research, 2 years of postdoctoral research with a specialism in CRISPR gene editing and 3 years of oncology drug discovery experience in a drug discovery CRO. This repository showcases my work and progress as I transition from a scientific research background into the field of data science. I hope to build a portfolio that spans diverse areas within data science, such as bioinformatics, computational biology, and machine learning.
 
 ## Techniques that I will be covering:
 - **RNA-Seq Analysis**: Comprehensive analysis of RNA-Seq data using tools such as DESeq2 and visualization techniques like PCA and heatmaps.
