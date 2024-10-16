@@ -2,7 +2,7 @@
 
 This repository showcases various RNA-Seq analysis techniques using Bioconductor packages in R. 
 
-Mini-projects which I will be publishing include but not limited to:
+Mini-projects I will be publishing include, but are not limited to:
 
 - Differential gene expression analysis using `DESeq2`
 - Principal Component Analysis (PCA) plots to visualise sample clustering
