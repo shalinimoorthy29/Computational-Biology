@@ -1,28 +1,59 @@
-# How to Download and Extract RNA-Seq Data from NCBI GEO Datasets
+# Differential Gene Expression Analysis Using DESeq2
 
 ## Overview
-This guide outlines the steps required to download RNA-Seq data from the NCBI GEO DataSets and extract compressed `.gz` files using Python via the Anaconda Prompt. The aim is to retrieve the raw counts data from a GEO accession ID and unzip the downloaded file for further analysis.
+This project demonstrates the analysis of RNA-Seq data to identify differentially expressed genes using the DESeq2 package in R. The dataset used for this analysis is from the GEO Accession ID: **GSE46056**.
 
-## Steps
+## Prerequisites
+- Set your working directory to the folder containing the necessary data files.
+- Download the count data file `GSE46056_raw_counts_GRCh38.p13_NCBI.tsv.gz` from the following URL:  
+  [GSE46056 Dataset](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)
+  
+- Prepare two CSV files:
+  1. `counts_data.csv`: Contains the raw counts matrix with gene IDs as rows and sample IDs (GSM IDs) as columns.
+  2. `col_data.csv`: Contains sample information (GSM IDs, sample names, and experimental conditions). The GSM IDs must match the column names of the `counts_data.csv` file and be in the same order.
 
-### 1. Downloading RNA-Seq Data
-- Navigate to the [NCBI GEO DataSets](https://www.ncbi.nlm.nih.gov/gds) page.
-- Enter the GEO accession ID (e.g., **GSEXXXXX**) and search for the dataset.
-- Select the first result from the search output and locate the desired file type at the bottom of the page.
-- Download the file, typically available in a compressed format such as `.gz`, to your working directory.
+## Required R Packages
+This analysis relies on the following R packages:
+- **DESeq2**: For differential expression analysis of RNA-Seq data.
+- **tidyverse**: A collection of R packages used for data manipulation and visualisation.
+- **ggplot2**: For creating visualisations such as MA and volcano plots.
+- **readr**: For reading CSV files into R.
 
-### 2. Extracting the Downloaded File
-- To unzip the downloaded `.gz` file, use the Anaconda Prompt.
-- The directory where the file is located is set using the `cd` command.
-- Python is used to run a simple script that extracts the compressed `.gz` file and saves the uncompressed data as a new file in the working directory.
+## Analysis Stages
 
-### 3. Running Python via the Anaconda Prompt
-- The Python interpreter is started from the Anaconda Prompt, and a Python script is used to handle the extraction process.
-- The `.gz` file is opened, and its contents are copied into a new uncompressed file with the same name but without the `.gz` extension.
+### 1. Loading Data
+The counts matrix and sample metadata are loaded into the R environment. The counts matrix contains raw gene expression data (with gene IDs as rows and sample IDs as columns), while the metadata contains information about the experimental conditions for each sample.
+
+### 2. Data Consistency Checks
+Before the analysis, the script checks that the sample names in the counts matrix match the corresponding entries in the sample metadata. This ensures that the samples are properly aligned for the analysis.
+
+### 3. Creating a DESeqDataSet
+A `DESeqDataSet` object is created using the raw counts and sample metadata. Genes with low expression levels (fewer than 10 counts) are filtered out to improve the reliability of the differential expression analysis. Additionally, the experimental condition being studied (e.g., "Knockdown" vs. "Untreated") is set as the reference for comparisons.
+
+### 4. Differential Expression Analysis
+The DESeq2 package is used to perform the differential gene expression analysis. This identifies genes whose expression levels significantly differ between the experimental conditions. The results include log2 fold changes, p-values, and adjusted p-values (to account for multiple testing).
+
+### 5. Filtering Significant Genes
+Significant differentially expressed genes are identified based on an adjusted p-value (padj) threshold of 0.01. The significant results are saved as a CSV file for further exploration or reporting.
+
+### 6. Visualisation
+
+#### MA Plot
+An MA plot is generated to visualise the relationship between the mean expression of genes and the log2 fold change in expression. This plot helps highlight genes that have large changes in expression levels compared to their average expression.
+
+#### Volcano Plot
+A volcano plot is created to show the relationship between log2 fold changes and statistical significance (-log10 p-values) for each gene. Genes that are both statistically significant and have large fold changes are highlighted in red, making it easy to identify the most biologically relevant genes.
+
+### 7. Summary of Results
+The analysis successfully identifies differentially expressed genes between the experimental conditions. Genes with significant changes in expression (adjusted p-value < 0.01 and absolute log2 fold change > 1) are highlighted in the volcano plot, providing a clear visual representation of important gene expression changes.
+
+## Conclusions
+This project demonstrates a complete workflow for performing RNA-Seq differential gene expression analysis using DESeq2. It includes steps for data loading, quality control, differential expression analysis, and visualisation of results. The analysis reveals significant changes in gene expression between the experimental conditions, which are easily identifiable through the visualisations (MA and volcano plots).
 
 ## Output
-- After successfully running the commands, the uncompressed file (e.g., **GSEXXXXX_raw_counts_GRCh38.p13_NCBI.tsv**) will be created in the working directory.
-- The original compressed file remains unchanged, and the uncompressed version is now ready for use in downstream analysis, such as differential gene expression.
+- **significant_results.csv**: A CSV file containing the differentially expressed genes identified through the analysis.
+- **MA Plot**: A visualisation showing the mean expression versus log2 fold change for all genes.
+- **Volcano Plot**: A visualisation showing the significance and fold change of genes, highlighting those that are differentially expressed.
 
-## Conclusion
-By following this process, RNA-Seq data can be efficiently downloaded from NCBI GEO DataSets and extracted using Python in the Anaconda Prompt. This method ensures that large compressed files, commonly used in bioinformatics datasets, are handled smoothly and made ready for further analysis. The use of Python's `gzip` and `shutil` modules provides a simple and effective way to unzip `.gz` files without requiring external software.
+## Licence
+This project is licensed under the MIT Licence - see the LICENCE file for details.
