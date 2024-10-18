@@ -15,8 +15,8 @@ This project demonstrates the analysis of RNA-Seq data to identify differentiall
 ## Required R Packages
 This analysis relies on the following R packages:
 - **DESeq2**: For differential expression analysis of RNA-Seq data.
-- **tidyverse**: A collection of R packages used for data manipulation and visualization.
-- **ggplot2**: For creating visualizations such as MA and volcano plots.
+- **tidyverse**: A collection of R packages used for data manipulation and visualisation.
+- **ggplot2**: For creating visualisations such as MA and volcano plots.
 - **readr**: For reading CSV files into R.
 
 ## Analysis Stages
@@ -28,7 +28,7 @@ The counts matrix and sample metadata are loaded into the R environment. The cou
 Before the analysis, the script checks that the sample names in the counts matrix match the corresponding entries in the sample metadata. This ensures that the samples are properly aligned for the analysis.
 
 ### 3. Creating a DESeqDataSet
-A `DESeqDataSet` object is created using the raw counts and sample metadata. Genes with low expression levels (less than 10 counts) are filtered out to improve the reliability of the differential expression analysis. Additionally, the experimental condition being studied (e.g., "Knockdown" vs. "Untreated") is set as the reference for comparisons.
+A `DESeqDataSet` object is created using the raw counts and sample metadata. Genes with low expression levels (fewer than 10 counts) are filtered out to improve the reliability of the differential expression analysis. Additionally, the experimental condition being studied (e.g., "Knockdown" vs. "Untreated") is set as the reference for comparisons.
 
 ### 4. Differential Expression Analysis
 The DESeq2 package is used to perform the differential gene expression analysis. This identifies genes whose expression levels significantly differ between the experimental conditions. The results include log2 fold changes, p-values, and adjusted p-values (to account for multiple testing).
@@ -48,12 +48,4 @@ A volcano plot is created to show the relationship between log2 fold changes and
 The analysis successfully identifies differentially expressed genes between the experimental conditions. Genes with significant changes in expression (adjusted p-value < 0.01 and absolute log2 fold change > 1) are highlighted in the volcano plot, providing a clear visual representation of important gene expression changes.
 
 ## Conclusions
-This project demonstrates a complete workflow for performing RNA-Seq differential gene expression analysis using DESeq2. It includes steps for data loading, quality control, differential expression analysis, and visualisation of results. The analysis reveals significant changes in gene expression between the experimental conditions, which are easily identifiable through the visualizations (MA and volcano plots).
-
-## Output
-- **significant_results.csv**: A CSV file containing the differentially expressed genes identified through the analysis.
-- **MA Plot**: A visualisation showing the mean expression versus log2 fold change for all genes.
-- **Volcano Plot**: A visualisation showing the significance and fold change of genes, highlighting those that are differentially expressed.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project demonstrates a complete workflow for performing RNA-Seq differential gene expression analysis using DESeq2. It includes steps for data loading, quality control, differential expression analysis, and visualisation of results. The analysis successfully identifies differentially expressed genes between the experimental conditions. The MA plot highlights genes with large changes in expression relative to their mean expression levels, showing several genes with significant upregulation or downregulation. Meanwhile, the volcano plot provides a clear visual representation of the most biologically significant genes, showing those with both large fold changes and high statistical significance. These plots confirm the presence of significant changes in gene expression between the experimental conditions, with the volcano plot particularly emphasizing the most relevant genes with substantial differential expression. Genes with significant changes in expression (adjusted p-value < 0.01 and absolute log2 fold change > 1) are highlighted in the volcano plot, providing a clear visual representation of important gene expression changes.
