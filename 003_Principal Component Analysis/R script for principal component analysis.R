@@ -1,5 +1,3 @@
-setwd("C:/Users/shali/Documents/PC Documents/Shalini/Shalini_L&D/GitHub Projects/RNAseq/003_Principal Component Analysis")
-
 install.packages("BiocManager")
 BiocManager::install("DESeq2")  # DESeq2 for RNA-Seq analysis and PCA
 BiocManager::install("ggplot2")  # For plotting
