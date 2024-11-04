@@ -28,8 +28,13 @@
 # reading and writing data files efficiently.
 
 
-# 1) Load required R packages.
+# 1) Install and load required R packages and libraries.
 install.packages("BiocManager")
+BiocManager::install("DESeq2")
+BiocManager::install("tidyverse")
+BiocManager::install("ggplot2")
+BiocManager::install("readr")
+
 library(DESeq2)
 library(tidyverse)
 library(ggplot2)
