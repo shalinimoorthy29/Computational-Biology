@@ -3,6 +3,18 @@
 # Required file type: GSE46056_raw_counts_GRCh38.p13_NCBI.tsv.gz
 # URL: https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056
 
+# Prerequisite:
+# Set working directory.
+# Download file and extract from zip folder.
+# Copy and paste the data into an Excel sheet and export as CSV (counts_data.csv)
+# Transfer file to working directory.
+# Create another CSV file with the GSM IDs, sample names, and condition.
+# NOTE - GSM IDs, which would be seen as column headers in the counts data, 
+# should be in the same order, but as rows in the column data.
+# Create it using an Excel sheet, export as a CSV file (col_data.csv)
+# Transfer file to working directory.
+
+# 1) Install and load required R packages and libraries.
 install.packages("BiocManager")
 BiocManager::install("DESeq2")  # DESeq2 for RNA-Seq analysis and PCA
 BiocManager::install("ggplot2")  # For plotting
@@ -10,40 +22,40 @@ BiocManager::install("ggplot2")  # For plotting
 library(DESeq2)
 library(ggplot2)
 
-# 1) Load counts data (genes as rows and samples as columns).
+# 2) Load counts data (genes as rows and samples as columns).
 counts_data <- read.csv('counts_data.csv', row.names = 1)
 
-# 2) Load metadata (sample information, e.g., conditions like Knockdown/Control).
+# 3) Load metadata (sample information, e.g., conditions like Knockdown/Control).
 col_data <- read.csv('col_data.csv', row.names = 1)
 
-# 3) Ensure column names of counts_data match the row names of col_data.
+# Ensure column names of counts_data match the row names of col_data.
 all(colnames(counts_data) == rownames(col_data))  # This should return TRUE
 
-# 4) Create DESeq2 dataset.
+# Create DESeq2 dataset.
 dds <- DESeqDataSetFromMatrix(countData = counts_data, 
                               colData = col_data, 
                               design = ~ Knockdown)  # Replace 'Knockdown' with your specific condition
 
-# 5) Filter low count genes. 
+# Filter low count genes. 
 keep <- rowSums(counts(dds)) >= 10
 dds <- dds[keep,]
 
-# 6) Perform variance stabilising transformation.
+# Perform variance stabilising transformation.
 vsd <- vst(dds, blind = FALSE)
 
-# 7) Generate PCA data.
+# Generate PCA data.
 pca_data <- plotPCA(vsd, intgroup = "Knockdown", returnData = TRUE)  
 percent_var <- round(100 * attr(pca_data, "percentVar"))
 
 
-# 8) Add sample names or IDs as labels.
+# Add sample names or IDs as labels.
 pca_data$SampleID <- rownames(pca_data)  # If you have sample names in metadata, you can adjust this
 
-# 9) Create PCA plot with sample labels.
+# Create PCA plot with sample labels.
 # Assuming you don't have a column named 'Sample', use the rownames of pca_data to create it.
 pca_data$Sample <- rownames(pca_data)  # Assign sample names or IDs from row names
 
-# 10) Now plot with the correct sample labels.
+# Now plot with the correct sample labels.
 ggplot(pca_data, aes(PC1, PC2, color = Knockdown)) +  # Remove 'label = Sample' from aes()
   geom_point(size = 3) +
   geom_text(aes(label = Sample), vjust = -0.5, hjust = 0.5, show.legend = FALSE) +  # Add labels without affecting legend
