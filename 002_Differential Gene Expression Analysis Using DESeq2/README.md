@@ -1,4 +1,4 @@
-# Differential Gene Expression Analysis Using DESeq
+# Differential Gene Expression Analysis Using DESeq2
 
 ## Overview
 This project demonstrates the analysis of RNA-Seq data to identify differentially expressed genes using the DESeq2 package in R. The dataset used for this analysis is from the GEO Accession ID: **GSE46056**.
