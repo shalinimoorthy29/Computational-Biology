@@ -58,39 +58,39 @@ summary(result)
 significant_result <- results(dds, alpha = 0.01)
 summary(significant_result)
 
-# Save significant results to CSV.
+# 10) Save significant results to CSV.
 write.csv(as.data.frame(significant_result), "significant_results.csv")
-
-# 10) Plot MA plots for result and significant result.
-plotMA(significant_result, main="MA Plot")
 
 # --------------------------------------------------------------------------------
 
-# Load the data with ENTREZ IDs as row names
+# 11) Plot MA plots for result and significant result.
+plotMA(significant_result, main="MA Plot")
+
+# 12) Load the data with ENTREZ IDs as row names
 data <- read.csv("significant_results.csv", row.names = 1)
 
-# Convert row names to a column for merging purposes, naming it as 'entrez_id'
+# 13) Convert row names to a column for merging purposes, naming it as 'entrez_id'
 data <- data %>%
   tibble::rownames_to_column(var = "entrez_id")
 
-# Ensure that entrez_id is numeric for compatibility with biomaRt
+# 14) Ensure that entrez_id is numeric for compatibility with biomaRt
 data$entrez_id <- as.numeric(as.character(data$entrez_id))
 
-# Use biomaRt to convert ENTREZ IDs to gene symbols
+# 15) Use biomaRt to convert ENTREZ IDs to gene symbols
 mart <- useMart("ensembl", dataset = "hsapiens_gene_ensembl")
 genes <- getBM(filters = "entrezgene_id",
                attributes = c("entrezgene_id", "hgnc_symbol"),
                values = unique(data$entrez_id),
                mart = mart)
 
-# Merge gene symbols into the data frame based on entrez_id
+# 16) Merge gene symbols into the data frame based on entrez_id
 data <- data %>%
   left_join(genes, by = c("entrez_id" = "entrezgene_id"))
 
-# Remove rows with NA values in both hgnc_symbol and padj columns
+# 17) Remove rows with NA values in both hgnc_symbol and padj columns
 data <- data %>% filter(!is.na(hgnc_symbol) & !is.na(padj))
 
-# Add columns for plotting: -log10(p-value), group classification, and significance flag
+# 18) Add columns for plotting: -log10(p-value), group classification, and significance flag
 plotdata <- data %>%
   mutate(log10_pvalue = -log10(pvalue),
          group = case_when(
@@ -99,10 +99,10 @@ plotdata <- data %>%
            TRUE ~ "Not Significant"
          ))
 
-# Filter significant results for labeling
+# 19) Filter significant results for labeling
 plotdata_sig <- plotdata %>% filter(group != "Not Significant")
 
-# Generate the volcano plot with centered title and axis labels
+# 20) Generate the volcano plot with centered title and axis labels
 ggplot(plotdata, aes(x = log2FoldChange, y = log10_pvalue)) +
   geom_point(aes(color = group), alpha = 0.6, size = 2) +
   scale_color_manual(values = c("Upregulated" = "red", "Downregulated" = "blue", "Not Significant" = "black")) +
