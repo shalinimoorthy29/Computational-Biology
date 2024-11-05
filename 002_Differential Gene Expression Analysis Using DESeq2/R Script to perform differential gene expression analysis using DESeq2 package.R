@@ -3,6 +3,17 @@
 # Required file type: GSE46056_raw_counts_GRCh38.p13_NCBI.tsv.gz
 # URL: https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056
 
+# Prerequisite:
+# Set working directory.
+# Download file and extract from zip folder.
+# Copy and paste the data into an Excel sheet and export as CSV (counts_data.csv)
+# Transfer file to working directory.
+# Create another CSV file with the GSM IDs, sample names, and condition.
+# NOTE - GSM IDs, which would be seen as column headers in the counts data, 
+# should be in the same order, but as rows in the column data.
+# Create it using an Excel sheet, export as a CSV file (col_data.csv)
+# Transfer file to working directory.
+
 # 1) Install and load required R packages and libraries.
 install.packages("BiocManager")
 BiocManager::install("DESeq2")
