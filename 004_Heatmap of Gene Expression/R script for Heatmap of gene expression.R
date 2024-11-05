@@ -1,3 +1,8 @@
+# R Script for heatmap creation
+# GEO Accession ID: GSE46056
+# Required file type: GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.tsv.gz
+# URL: https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056
+
 install.packages("BiocManager")
 BiocManager::install(c("ComplexHeatmap", "circlize", "biomaRt"))
 
