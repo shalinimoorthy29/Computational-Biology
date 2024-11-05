@@ -28,34 +28,32 @@ counts_data <- read.csv('counts_data.csv', row.names = 1)
 # 3) Load metadata (sample information, e.g., conditions like Knockdown/Control).
 col_data <- read.csv('col_data.csv', row.names = 1)
 
-# Ensure column names of counts_data match the row names of col_data.
+# 4) Ensure column names of counts_data match the row names of col_data.
 all(colnames(counts_data) == rownames(col_data))  # This should return TRUE
 
-# Create DESeq2 dataset.
+# 5) Create DESeq2 dataset.
 dds <- DESeqDataSetFromMatrix(countData = counts_data, 
                               colData = col_data, 
                               design = ~ Knockdown)  # Replace 'Knockdown' with your specific condition
 
-# Filter low count genes. 
+# 6) Filter low count genes. 
 keep <- rowSums(counts(dds)) >= 10
 dds <- dds[keep,]
 
-# Perform variance stabilising transformation.
+# 7) Perform variance stabilising transformation.
 vsd <- vst(dds, blind = FALSE)
 
-# Generate PCA data.
+# 8) Generate PCA data.
 pca_data <- plotPCA(vsd, intgroup = "Knockdown", returnData = TRUE)  
 percent_var <- round(100 * attr(pca_data, "percentVar"))
 
-
-# Add sample names or IDs as labels.
+# 9) Add sample names or IDs as labels.
 pca_data$SampleID <- rownames(pca_data)  # If you have sample names in metadata, you can adjust this
 
-# Create PCA plot with sample labels.
-# Assuming you don't have a column named 'Sample', use the rownames of pca_data to create it.
-pca_data$Sample <- rownames(pca_data)  # Assign sample names or IDs from row names
+# 10) Assign sample names or IDs from row names
+pca_data$Sample <- rownames(pca_data)  
 
-# Now plot with the correct sample labels.
+# 11) Create PCA plot with sample labels.
 ggplot(pca_data, aes(PC1, PC2, color = Knockdown)) +  # Remove 'label = Sample' from aes()
   geom_point(size = 3) +
   geom_text(aes(label = Sample), vjust = -0.5, hjust = 0.5, show.legend = FALSE) +  # Add labels without affecting legend
