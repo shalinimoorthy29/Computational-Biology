@@ -1,4 +1,4 @@
-# R Script to perform differential gene expression analysis using DESeq2
+# R Script to perform PCA analysis
 # GEO Accession ID: GSE46056
 # Required file type: GSE46056_raw_counts_GRCh38.p13_NCBI.tsv.gz
 # URL: https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056
