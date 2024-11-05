@@ -1,4 +1,4 @@
-# Heatmap Analysis of Gene Expression Data
+# Heatmap Analysis of Gene Expression Dat
 
 **Dataset Used**:  
 - **Dataset**: GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.tsv  
