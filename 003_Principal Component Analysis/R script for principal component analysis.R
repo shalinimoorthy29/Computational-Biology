@@ -1,3 +1,8 @@
+# R Script to perform differential gene expression analysis using DESeq2
+# GEO Accession ID: GSE46056
+# Required file type: GSE46056_raw_counts_GRCh38.p13_NCBI.tsv.gz
+# URL: https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056
+
 install.packages("BiocManager")
 BiocManager::install("DESeq2")  # DESeq2 for RNA-Seq analysis and PCA
 BiocManager::install("ggplot2")  # For plotting
@@ -48,6 +53,5 @@ ggplot(pca_data, aes(PC1, PC2, color = Knockdown)) +  # Remove 'label = Sample' 
   labs(title = "PCA Plot with Sample Labels") +
   coord_cartesian(xlim = range(pca_data$PC1) + c(-2, 2),  # Extend X axis limits
                   ylim = range(pca_data$PC2) + c(-2, 2)) +  # Extend Y axis limits
-  
   # Center the plot title
   theme(plot.title = element_text(hjust = 0.5))  # Center the title
