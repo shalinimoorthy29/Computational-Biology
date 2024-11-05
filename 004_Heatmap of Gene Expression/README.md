@@ -1,25 +1,29 @@
-# Heatmap of Z-Score Normalised Gene Expression Data (with Gene Symbol Mapping)
+# Heatmap Analysis of Gene Expression Data
 
 **Dataset Used**:  
-- Dataset: `GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.tsv`  
-- This dataset contains normalised gene expression counts (FPKM) across multiple samples, originally identified using NCBI Entrez Gene IDs.  
+- **Dataset**: GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.tsv  
+- This dataset contains RNA-seq FPKM (Fragments Per Kilobase of transcript per Million mapped reads) counts across multiple samples from the GSE46056 dataset. The data was analysed to investigate variations in gene expression levels across different experimental conditions.
 
 **Objectives**:  
-The objective of this analysis was to create a heatmap of gene expression data to visualise patterns of expression across multiple samples. Z-score normalisation was applied to the data to focus on relative changes in expression, making it easier to compare the variation across genes and samples. The gene IDs were mapped to human-readable gene symbols using the **biomaRt** package for clearer biological interpretation.
+The objective of this analysis was to create a heatmap of gene expression data to visually explore the top 10% most variable genes. This heatmap aimed to highlight the differences in expression patterns between experimental conditions.
 
 **Stage of Analysis**:  
-1. **Data Preprocessing**: The normalised counts were loaded for analysis. Entrez Gene IDs were mapped to HGNC gene symbols using the Ensembl database via the **biomaRt** package. Rows with missing or unmapped gene symbols were removed from the dataset.
+1. **Data Loading and Preparation**: The FPKM data was loaded and prepared for analysis. This step ensured that the data was in the correct format for visualisation. FPKM counts provide a normalised measure of gene expression that accounts for sequencing depth and gene length. This makes them suitable for EDA as they allow for meaningful comparisons across genes and samples. By using FPKM counts, researchers can explore variance in gene expression while minimising the impact of outliers, leading to more robust interpretations.
+   
+2. **Log-Transformation of FPKM Data**: The raw FPKM counts were log-transformed (log2 transformation with a pseudocount of 1) to stabilise variance and make the expression data more comparable across samples.
 
-2. **Log Transformation**: A log transformation was applied to the FPKM data (adding 1 to avoid log(0)) to compress the range of values and make the differences in expression more interpretable. This is crucial when handling a dataset with a wide dynamic range in expression levels.
+3. **Gene Annotation**: BiomaRt was used to map Entrez Gene IDs to HGNC gene symbols, enhancing the interpretability of the heatmap.
 
-3. **Z-Score Normalisation**: Z-score normalisation was applied to the log-transformed data to standardise the expression values for each gene across samples. This ensures that the heatmap captures relative expression differences rather than absolute values.
+4. **Data Filtering**: Genes with missing or invalid symbols were removed, ensuring only valid gene annotations were used.
 
-4. **Handling Missing/Unmapped Data**: After mapping Entrez Gene IDs to gene symbols, rows without valid gene symbols were removed. This ensures that only genes with corresponding human-readable gene symbols are displayed in the final heatmap. Duplicate gene symbols were handled using unique identifiers to avoid naming conflicts.
+5. **Selection of Most Variable Genes**: The analysis focused on the top 10% most variable genes based on standard deviation, which are often the most informative for exploratory data analysis. Focusing on the top 10% most variable genes allows researchers to highlight the genes that exhibit the greatest variability across samples. These genes are often the most biologically relevant and can reveal significant patterns in response to different experimental conditions. This approach reduces dimensionality, making it easier to visualise and interpret the data, while capturing the main sources of variability.
 
-5. **Heatmap Generation**: A heatmap was generated to visualise gene expression patterns. The data was clustered both by genes (rows) and samples (columns) to highlight relationships in the data. The colour scale (blue-white-red) was used to represent the range of z-scores, from low to high expression.
+6. **Z-Score Normalisation**: The selected subset of genes was normalised using z-scores to allow for easier comparison of expression levels across samples.
 
-**Rationale**:  
-The heatmap is a powerful visualisation tool that enables the comparison of expression patterns across genes and samples. Mapping Entrez Gene IDs to gene symbols makes the data more interpretable and biologically relevant. Z-score normalisation ensures that the focus is on relative changes in expression, which are often more biologically meaningful. Clustering both genes and samples helps identify co-expressed genes and sample groups with similar expression profiles.
+7. **Heatmap Generation**: A heatmap was created to visualise the expression patterns of the top 10% most variable genes, with condition annotations for treated and control samples. Although Entrez IDs were mapped to genes, the plot does not display gene labels due to space restrictions. This approach allows for a clearer view of expression patterns across more genes.
+
+**Rationale for Heatmap Visualisation**:  
+Heatmaps are powerful tools for visualising high-dimensional data such as RNA-seq expression profiles. They provide an intuitive way to identify patterns, clusters, and relationships among samples. In the context of RNA-seq analysis, heatmaps allow researchers to visually assess how gene expression changes across different conditions, facilitating insights into biological processes and treatment effects.
 
 **Conclusions**:  
-The heatmap visualisation of Z-score normalised gene expression data reveals distinct patterns of co-expressed genes across multiple samples. Clustering of both genes and samples shows clear groupings that may correspond to biological pathways or experimental conditions. By mapping Entrez Gene IDs to gene symbols, the analysis improves the biological relevance and interpretability of the data. Z-score normalisation highlights relative changes in gene expression, focusing on meaningful variations rather than absolute values. This analysis provides insights into potential gene regulatory mechanisms and biological differences across the samples.
+The heatmap successfully illustrated the expression patterns of the most variable genes, providing insights into the differences in gene expression between conditions. The clustering of samples indicated how treatment conditions influenced gene expression profiles, confirming that biological variations were captured effectively in the visualisation.
