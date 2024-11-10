@@ -11,7 +11,7 @@ This repository will showcase various sequencing data analysis techniques using 
 
 ## Packages:
 
-- **BiocManager**: I’ll use BiocManager to manage Bioconductor package installations and dependencies, ensuring that required packages and libraries for single-cell and bulk RNA-Seq analyses are up-to-date and compatible.
+- **BiocManager**: I’ll use BiocManager to manage Bioconductor package installations and dependencies, ensuring that required packages and libraries for analyses are up-to-date and compatible.
 
 - **clusterProfiler**: This will facilitate functional enrichment analysis, enabling me to explore Gene Ontology (GO) terms, KEGG pathways, and other biological functions in clusters of genes or cells. It’s especially useful for interpreting single-cell clustering results in terms of biological relevance.
 
