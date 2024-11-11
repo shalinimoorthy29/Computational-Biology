@@ -67,7 +67,7 @@ column_ha <- HeatmapAnnotation(
   annotation_legend_param = list(condition = list(title = "Condition"))
 )
 
-# 15. Plot heaptmap
+# 15. Plot heatmap
 Heatmap(scaled_data,
         name = "Expression",
         col = colorRamp2(c(-1.5, 0, 1.5), c("blue", "white", "red")),
