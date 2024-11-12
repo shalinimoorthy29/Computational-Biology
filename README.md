@@ -1,4 +1,4 @@
-# Welcome to the Sequencing-Data-Analysis Repository
+# Welcome to the Computational Biology Repository
 
 This repository will showcase various sequencing data analysis techniques using R. Analysis will include, but is not limited to, Bulk RNA-Seq, ChIP-Seq, and Single-Cell RNA-Seq.
 
