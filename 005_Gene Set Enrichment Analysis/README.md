@@ -1,10 +1,19 @@
-**Study Accession**: [GSE46056](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)  
-**Organism**: Homo sapiens  
-**Summary**: This project explores the role of PRMT4, a type I arginine methyltransferase, in hematopoiesis and its potential oncogenic function in acute myelogenous leukemia (AML). The overexpression of PRMT4 in AML patient samples and its repressive action on myeloid differentiation in human stem/progenitor cells (HSPCs) suggest a key regulatory role. PRMT4 knockdown (KD) induces myeloid differentiation, hinting at its therapeutic targeting potential in AML.
+# Project Title
+**Gene Set and Disease Ontology Enrichment Analysis of PRMT4 Knockdown in Human CD34+ Cells**
+
+## Dataset
+[GSE46056](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)  
+
+## Objectives
+- To investigate the transcriptional impact of PRMT4 knockdown** in human CD34+ cells, focusing on gene expression changes associated with myeloid differentiation.
+- To identify enriched biological processes and pathways** influenced by PRMT4 knockdown, using Gene Ontology (GO) enrichment analysis to reveal processes such as immune response, inflammatory regulation, and ion homeostasis.
+- To explore disease associations of differentially expressed genes** through Disease Ontology (DO) and DisGeNET enrichment analyses, highlighting potential connections to hematological and developmental disorders.
+- To assess PRMT4’s potential as a therapeutic target** in acute myeloid leukemia (AML) and other conditions driven by epigenetic dysregulation, based on pathway and disease enrichment insights.
 
 ## Project Overview
+This study explores the role of PRMT4, a type I arginine methyltransferase, in hematopoiesis and its potential oncogenic function in acute myelogenous leukemia (AML). The overexpression of PRMT4 in AML patient samples and its repressive action on myeloid differentiation in human stem/progenitor cells (HSPCs) suggest a key regulatory role. PRMT4 knockdown (KD) induces myeloid differentiation, hinting at its therapeutic targeting potential in AML.
 
-This repository contains an enrichment analysis pipeline applied to RNAseq data from the GSE46056 dataset. I used gene ontology (GO) enrichment, gene set enrichment analysis (GSEA), and disease ontology enrichment to uncover pathways and biological processes regulated by PRMT4 in CD34+ hematopoietic cells. The analyses performed aim to clarify the impact of PRMT4 knockdown on gene expression and potential downstream biological effects, particularly those relevant to myeloid differentiation and AML.
+This project contains an enrichment analysis pipeline applied to RNAseq data from the GSE46056 dataset. I used gene ontology (GO) enrichment, gene set enrichment analysis (GSEA), and disease ontology enrichment to uncover pathways and biological processes regulated by PRMT4 in CD34+ hematopoietic cells. The analyses performed aim to clarify the impact of PRMT4 knockdown on gene expression and potential downstream biological effects, particularly those relevant to myeloid differentiation and AML.
 
 ## Pipeline Description
 
@@ -72,7 +81,6 @@ The disease enrichment analysis highlights connections between PRMT4-regulated g
 - **Clustered Immune and Inflammatory Pathways**: The tree plot shows closely related immune response and inflammatory pathways grouped together, reflecting PRMT4 knockdown's effect on activating immune defence and inflammatory responses.
 - **Distinct Clusters of Ion Transport and Chemotaxis**: Separate clusters for ion homeostasis and chemotaxis highlight PRMT4's regulatory role in cellular signalling, transport, and movement, which are crucial in myeloid differentiation.
 
-
 ### GSEA
 
 **GSEA Enrichment Plots - Summary**
@@ -104,7 +112,7 @@ This plot complements the bar plot by illustrating both the statistical and prop
 **Enrichment Map of Disease Terms**
 - **Clustering of Related Disease Terms**: The enrichment map visually clusters similar disease terms, revealing potential connections between conditions. For example, terms like **cerebral atrophy**, **cerebellar atrophy**, and **spasticity** are closely linked, indicating shared pathways or genetic associations affected by PRMT4 knockdown.
 - **Significance and Association Strength**: The node size indicates the number of genes associated with each term, and colour gradient denotes the significance (p-adjust values), highlighting the most statistically enriched disease associations. This map provides an intuitive view of how PRMT4 knockdown may influence related disease pathways, especially in developmental and neurological conditions.
-
+- 
 ## Summary
 
 This project presents a detailed analysis of the transcriptional effects of PRMT4 knockdown on human CD34+ cells, highlighting PRMT4's multifaceted role in various biological and disease-related pathways. The results emphasise PRMT4's influence on immune response, inflammatory regulation, and cellular homeostasis, as well as its association with neurological and developmental diseases. These findings suggest that targeting PRMT4 may not only promote myeloid differentiation but also impact pathways relevant to oncogenic processes in AML and other hematological malignancies. This study enhances the understanding of PRMT4 as a therapeutic target, with broader implications for treatment strategies in cancer and potentially other disease contexts influenced by epigenetic regulation.
