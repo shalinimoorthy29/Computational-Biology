@@ -1,5 +1,3 @@
-![Tree Plot of GO Enriched Terms](https://github.com/user-attachments/assets/25140ddd-b51c-47f4-87d5-e0ba366b48a7)# Gene Ontology (GO) and Gene Set Enrichment Analysis (GSEA) for RNAseq Data of PRMT4 Knockdown in CD34+ Cells
-
 **Study Accession**: [GSE46056](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)  
 **Organism**: Homo sapiens  
 **Summary**: This project explores the role of PRMT4, a type I arginine methyltransferase, in hematopoiesis and its potential oncogenic function in acute myelogenous leukemia (AML). The overexpression of PRMT4 in AML patient samples and its repressive action on myeloid differentiation in human stem/progenitor cells (HSPCs) suggest a key regulatory role. PRMT4 knockdown (KD) induces myeloid differentiation, hinting at its therapeutic targeting potential in AML.
