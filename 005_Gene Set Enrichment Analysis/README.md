@@ -30,34 +30,8 @@ The script performs the following steps:
 
 4. **Disease Ontology Enrichment Analysis**:  
    I performed disease ontology enrichment to relate DEGs to known disease associations, which can potentially shed light on diseases or conditions linked to PRMT4 dysregulation, particularly hematological malignancies.
-
-## Interpretation of Results in the Context of GSE46056
-
-### GO Term Enrichment Analysis
-The GO enrichment results reveal biological processes associated with hematopoiesis, cell differentiation, and immune response pathways. Key findings from GO term enrichment include:
-- **Myeloid Differentiation**: GO terms related to immune response and hematopoietic processes were enriched, supporting the study's observation that PRMT4 knockdown induces differentiation in myeloid progenitor cells.
-- **Transcriptional Repression**: PRMT4’s role in repressing gene expression was indicated by GO terms associated with transcriptional regulation, which aligns with the study’s findings that PRMT4 represses miR-223 expression, thus blocking myeloid differentiation.
-
-### Gene Set Enrichment Analysis (GSEA)
-The hallmark pathways identified through GSEA provide insight into broader cellular processes affected by PRMT4 knockdown:
-- **Myc Targets and G2M Checkpoint Pathways**: Enrichment in MYC target and cell cycle-related pathways supports PRMT4's role in maintaining a proliferative, undifferentiated state, as observed in AML.
-- **Immune and Inflammatory Responses**: Pathways related to immune response, TNF-alpha signalling, and hypoxia were also enriched, suggesting that PRMT4 knockdown not only promotes differentiation but may also impact immune signalling pathways in hematopoietic cells.
-- **Potential Therapeutic Implications**: Targeting PRMT4 may disrupt oncogenic pathways in AML, providing a basis for therapeutic intervention, as PRMT4 depletion decreases leukemia cell proliferation.
-
-### Disease Ontology Enrichment
-The disease enrichment analysis highlights connections between PRMT4-regulated genes and various hematological malignancies, particularly:
-- **Hematologic Malignancies**: Enriched disease terms related to leukemia and other blood-related disorders align with the study’s finding that PRMT4 overexpression is common in AML and may contribute to leukemogenesis.
-- **Immune and Autoimmune Diseases**: Diseases associated with immune dysregulation were also identified, which could provide additional context for understanding PRMT4’s role in the immune landscape of hematopoietic cells.
-
-## Repository Contents
-
-- **Script**: `GSEA_GO_DO_Enrichment.R` - R script for performing GO enrichment, GSEA, and disease enrichment analysis.
-- **Figures**: Output plots illustrating enrichment results, including:
-  - GO term bar and dot plots
-  - GSEA enrichment plots for top pathways
-  - Disease enrichment maps and network plots
  
-## Conclusions from plots
+## Results
 
 ### GO Term Enrichment Analysis
 
@@ -112,7 +86,25 @@ This plot complements the bar plot by illustrating both the statistical and prop
 **Enrichment Map of Disease Terms**
 - **Clustering of Related Disease Terms**: The enrichment map visually clusters similar disease terms, revealing potential connections between conditions. For example, terms like **cerebral atrophy**, **cerebellar atrophy**, and **spasticity** are closely linked, indicating shared pathways or genetic associations affected by PRMT4 knockdown.
 - **Significance and Association Strength**: The node size indicates the number of genes associated with each term, and colour gradient denotes the significance (p-adjust values), highlighting the most statistically enriched disease associations. This map provides an intuitive view of how PRMT4 knockdown may influence related disease pathways, especially in developmental and neurological conditions.
-- 
+
+## Conclusions
+
+### GO Term Enrichment Analysis
+The GO enrichment results reveal biological processes associated with hematopoiesis, cell differentiation, and immune response pathways. Key findings from GO term enrichment include:
+- **Myeloid Differentiation**: GO terms related to immune response and hematopoietic processes were enriched, supporting the study's observation that PRMT4 knockdown induces differentiation in myeloid progenitor cells.
+- **Transcriptional Repression**: PRMT4’s role in repressing gene expression was indicated by GO terms associated with transcriptional regulation, which aligns with the study’s findings that PRMT4 represses miR-223 expression, thus blocking myeloid differentiation.
+
+### Gene Set Enrichment Analysis (GSEA)
+The hallmark pathways identified through GSEA provide insight into broader cellular processes affected by PRMT4 knockdown:
+- **Myc Targets and G2M Checkpoint Pathways**: Enrichment in MYC target and cell cycle-related pathways supports PRMT4's role in maintaining a proliferative, undifferentiated state, as observed in AML.
+- **Immune and Inflammatory Responses**: Pathways related to immune response, TNF-alpha signalling, and hypoxia were also enriched, suggesting that PRMT4 knockdown not only promotes differentiation but may also impact immune signalling pathways in hematopoietic cells.
+- **Potential Therapeutic Implications**: Targeting PRMT4 may disrupt oncogenic pathways in AML, providing a basis for therapeutic intervention, as PRMT4 depletion decreases leukemia cell proliferation.
+
+### Disease Ontology Enrichment
+The disease enrichment analysis highlights connections between PRMT4-regulated genes and various hematological malignancies, particularly:
+- **Hematologic Malignancies**: Enriched disease terms related to leukemia and other blood-related disorders align with the study’s finding that PRMT4 overexpression is common in AML and may contribute to leukemogenesis.
+- **Immune and Autoimmune Diseases**: Diseases associated with immune dysregulation were also identified, which could provide additional context for understanding PRMT4’s role in the immune landscape of hematopoietic cells.
+  
 ## Summary
 
 This project presents a detailed analysis of the transcriptional effects of PRMT4 knockdown on human CD34+ cells, highlighting PRMT4's multifaceted role in various biological and disease-related pathways. The results emphasise PRMT4's influence on immune response, inflammatory regulation, and cellular homeostasis, as well as its association with neurological and developmental diseases. These findings suggest that targeting PRMT4 may not only promote myeloid differentiation but also impact pathways relevant to oncogenic processes in AML and other hematological malignancies. This study enhances the understanding of PRMT4 as a therapeutic target, with broader implications for treatment strategies in cancer and potentially other disease contexts influenced by epigenetic regulation.
