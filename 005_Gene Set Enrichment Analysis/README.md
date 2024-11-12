@@ -1,5 +1,4 @@
-# Project Title
-**Gene Set and Disease Ontology Enrichment Analysis of PRMT4 Knockdown in Human CD34+ Cells**
+# Gene Set and Disease Ontology Enrichment Analysis of PRMT4 Knockdown in Human CD34+ Cells**
 
 ## Dataset
 [GSE46056](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)  
