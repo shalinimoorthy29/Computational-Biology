@@ -4,8 +4,8 @@
 [GSE46056](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)  
 
 ## Objectives
-- To investigate the transcriptional impact of PRMT4 knockdown** in human CD34+ cells, focusing on gene expression changes associated with myeloid differentiation.
-- To identify enriched biological processes and pathways** influenced by PRMT4 knockdown, using Gene Ontology (GO) enrichment analysis to reveal processes such as immune response, inflammatory regulation, and ion homeostasis.
+- To investigate the transcriptional impact of PRMT4 knockdown in human CD34+ cells, focusing on gene expression changes associated with myeloid differentiation.
+- To identify enriched biological processes and pathways influenced by PRMT4 knockdown, using Gene Ontology (GO) enrichment analysis to reveal processes such as immune response, inflammatory regulation, and ion homeostasis.
 - To explore disease associations of differentially expressed genes** through Disease Ontology (DO) and DisGeNET enrichment analyses, highlighting potential connections to hematological and developmental disorders.
 - To assess PRMT4’s potential as a therapeutic target** in acute myeloid leukemia (AML) and other conditions driven by epigenetic dysregulation, based on pathway and disease enrichment insights.
 
