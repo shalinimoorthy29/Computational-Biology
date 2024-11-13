@@ -19,7 +19,7 @@ This project contains an enrichment analysis pipeline applied to RNAseq data fro
 The script performs the following steps:
 
 1. **Data Loading and Preparation**:  
-   I load the gene expression results from DESeq2 analysis and map gene symbols to Entrez IDs for enrichment analysis.
+   I loaded the gene expression results from DESeq2 analysis and mapped gene symbols to Entrez IDs for enrichment analysis.
 
 2. **GO Term Enrichment Analysis**:  
    GO enrichment analysis was conducted on differentially expressed genes (DEGs) to explore biological processes affected by PRMT4 knockdown. This included visualisations such as bar plots, dot plots, enrichment maps, and heatmaps.
