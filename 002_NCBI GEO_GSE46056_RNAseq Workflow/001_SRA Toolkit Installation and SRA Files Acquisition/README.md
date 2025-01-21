@@ -38,8 +38,7 @@
 	SRR827459
 	...)
 
-   One SRR accession IDs have been entered into the nano terminal, press Ctrl+O to save the file and Ctrl+X to
-   exit the nano terminal. 
+   One SRR accession IDs have been entered into the nano terminal, press Ctrl+O to save the file and Ctrl+X to exit the nano terminal. 
 
 8. Use prefetch to download the .sra files for each accession number:
    ```bash
