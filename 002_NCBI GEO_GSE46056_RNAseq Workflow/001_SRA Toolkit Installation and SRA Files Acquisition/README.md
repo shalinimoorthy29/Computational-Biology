@@ -44,10 +44,11 @@ SRR827459
 
 One SRR accession IDs have been entered into the nano terminal, press Ctrl+O to save the file and Ctrl+X to close the nano terminal. 
 
-9. Use prefetch to download the .sra files for each accession number:
+8. Use prefetch to download the .sra files for each accession number:
+    
    ```bash
    cat ~/compbio/sratoolkit/srr_accessions.txt | xargs -n 1 prefetch
 
-10. Check the downloaded files:
+9. Check the downloaded files:
    ```bash
    ls
