@@ -1,7 +1,8 @@
 # Principal Component Analysis (PCA) on Gene Expression Data
 
 **Dataset Used**:  
-- Dataset: GSE46056_norm_counts_FPKM_GRCh38.p13_NCBI.tsv.gz  
+- Download the count data file `GSE46056_raw_counts_GRCh38.p13_NCBI.tsv.gz` from the following URL:  
+  [GSE46056 Dataset](https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE46056)
 - This dataset contains RNA-seq raw counts across multiple samples from the GSE46056 dataset. The data was analysed to investigate variations in gene expression levels across different experimental conditions.
 
 **Objectives**:  
