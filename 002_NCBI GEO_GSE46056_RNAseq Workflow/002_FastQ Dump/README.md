@@ -53,3 +53,5 @@ Output should look like:
 Read 27640449 spots for /home/shali/compbio/sratoolkit/test_sra_files/SRR827457.sra
 
 Written 27640449 spots for /home/shali/compbio/sratoolkit/test_sra_files/SRR827457.sra
+
+There should now be a total of 12 fastq files in the test_fastq_files folder that was created in step 6. 
