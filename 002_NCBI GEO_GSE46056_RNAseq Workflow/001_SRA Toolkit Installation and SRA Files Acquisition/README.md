@@ -32,10 +32,14 @@
    ```bash
    nano ~/compbio/sratoolkit/srr_accessions.txt
    ```
-Like a list:
+Example shown below:
+
 SRR827457
+
 SRR827458
+
 SRR827459
+
 ... until the final ID
 
 One SRR accession IDs have been entered into the nano terminal, press Ctrl+O to save the file and Ctrl+X to close the nano terminal. 
