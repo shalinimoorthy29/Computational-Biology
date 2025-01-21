@@ -32,12 +32,13 @@
    ```bash
    nano ~/compbio/sratoolkit/srr_accessions.txt
    ```
-   (Like a list:
-   SRR827457
-   SRR827458
-   SRR827459
-   ...)
-   One SRR accession IDs have been entered into the nano terminal, press Ctrl+O to save the file and Ctrl+X to close the nano terminal. 
+Like a list:
+SRR827457
+SRR827458
+SRR827459
+... until the final ID
+
+One SRR accession IDs have been entered into the nano terminal, press Ctrl+O to save the file and Ctrl+X to close the nano terminal. 
 
 9. Use prefetch to download the .sra files for each accession number:
    ```bash
