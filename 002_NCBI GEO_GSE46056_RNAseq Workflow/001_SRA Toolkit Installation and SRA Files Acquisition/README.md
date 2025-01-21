@@ -1,5 +1,4 @@
 # SRA Toolkit Installation and Retrieval of .sra Files
----
 
 ## SRA Toolkit Installation and Setup
 
