@@ -11,6 +11,9 @@ Output should look like: fastq-dump : 3.1.1
    cd ~/compbio/sratoolkit
 
 3. Create a directory to store .sra files
+
+Similar to SRA files, Fastq files are large files too, so not all SRA files need to be converted for a small GitHub project. So I chose a total of 6 SRA Files (3 controls and 3 treatments) to be convert to a total of 12 Fastq files. (Two FASTQ files will be generated per SRA file as the data corresponds to paired-end sequencing. Each FASTQ file represents one end of the paired reads.)
+
    ```bash
    mkdir ~/compbio/sratoolkit/test_sra_files
 
