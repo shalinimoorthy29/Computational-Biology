@@ -1,4 +1,4 @@
-# Generating FASTQC Reports From FASTQ Files
+# Generating FASTQC and MULTIQC Reports From FASTQ Files
 
 1. Check if FastQC is installed
    ```bash
