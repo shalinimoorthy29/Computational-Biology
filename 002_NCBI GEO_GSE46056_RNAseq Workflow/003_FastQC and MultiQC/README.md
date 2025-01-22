@@ -38,11 +38,14 @@ Output will look like: FastQC v0.12.1
    ```bash
    ls ~/compbio/sratoolkit/test_fastqc_files
 
+
 8. Check if MultiQC is installed
    ```bash
    multiqc --version
    ```
+
 If it is not installed, output will look like: Command 'multiqc' not found, but can be installed with: sudo apt install multiqc
+
 
 9. Install MultiQC if not already installed
    ```bash
