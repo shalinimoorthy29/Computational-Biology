@@ -37,3 +37,41 @@ Output will look like: FastQC v0.12.1
 7. Check the FastQC reports in the output directory
    ```bash
    ls ~/compbio/sratoolkit/test_fastqc_files
+
+8. Check if MultiQC is installed
+   ```bash
+   multiqc --version
+   ```
+If it is not installed, output will look like: Command 'multiqc' not found, but can be installed with: sudo apt install multiqc
+
+9. Install MultiQC if not already installed
+   ```bash
+   sudo apt update
+   sudo apt install multiqc
+   ```
+
+10. Verify installation
+   ```bash
+   multiqc --version
+   ```
+Output will look like: MultiQC, version 1.18
+
+11. Navigate to the working directory
+   ```bash
+   cd ~/compbio/sratoolkit
+   ```
+
+12. Create a directory to store MultiQC outputs
+   ```bash
+   mkdir ~/compbio/sratoolkit/test_multiqc_file
+   ```
+
+13. Run MultiQC on the FastQC output directory
+   ```bash
+   multiqc ~/compbio/sratoolkit/test_fastqc_files -o ~/compbio/sratoolkit/test_multiqc_file/
+   ```
+
+14. Check the generated MultiQC report
+   ```bash
+   ls ~/compbio/sratoolkit/test_multiqc_file
+   ```
