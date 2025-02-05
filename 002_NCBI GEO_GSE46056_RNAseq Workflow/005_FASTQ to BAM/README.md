@@ -48,12 +48,14 @@ done
 
 Monitor Alignment Output (will look like this):
 
+```
 27640449 reads; of these:
   27640449 (100.00%) were paired; of these:
     2087594 (7.55%) aligned concordantly 0 times
     23931404 (86.58%) aligned concordantly exactly 1 time
     1621451 (5.87%) aligned concordantly >1 times
 95.83% overall alignment rate
+```
 
 ## Step 5: BAM File Sorting
 
