@@ -82,6 +82,7 @@ samtools view -H ~/compbio/sratoolkit/test_bam_files/SRR827457.bam
 
 Output will look like this:
 
+```
 @HD     VN:1.0  SO:coordinate
 @SQ     SN:1    LN:248956422
 @SQ     SN:10   LN:133797422
@@ -90,6 +91,8 @@ Output will look like this:
 @PG     ID:hisat2       PN:hisat2       VN:2.2.1        CL:"/usr/bin/hisat2-align-s --wrapper basic-0 -p 4 ..."
 @PG     ID:samtools     PN:samtools     PP:hisat2       VN:1.19.2       CL:samtools view -bS -
 ...
+```
+
 
 
 
