@@ -4,19 +4,19 @@ This README describes the process of aligning FASTQ files to a reference genome 
 
 ---
 
-## Step 1: Navigate to the Directory for Alignment
+### 1: Navigate to the Directory for Alignment
 
 ```bash
 cd ~/compbio/GSE46056_RNAseq
 ```
 
-## Step 2: Create a Directory for BAM Files
+### 2: Create a Directory for BAM Files
 
 ```bash
 mkdir ~/compbio/GSE46056_RNAseq/bam_files
 ```
 
-## Step 3: Test Alignment for One FASTQ Pair
+### 3: Test Alignment for One FASTQ Pair
 (The -p 4 option specifies the use of 4 threads for the alignment. Adjust this based on available CPU cores)
 
 ```bash
@@ -33,7 +33,7 @@ Remove the Test BAM File (Optional)
 rm ~/compbio/GSE46056_RNAseq/bam_files/SRR827457.bam
 ```
 
-## Step 4: Automate the Alignment for All FASTQ Pairs
+### 4: Automate the Alignment for All FASTQ Pairs
 Use a loop to process all paired FASTQ files in the test_fastq_files directory and directly convert them to BAM files:
 
 ```bash
@@ -66,7 +66,7 @@ Monitor Alignment Output (will look like this):
 95.83% overall alignment rate
 ```
 
-## Step 5: BAM File Sorting
+### 5: BAM File Sorting
 
 ```bash
 for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
@@ -75,7 +75,7 @@ for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
 done
 ```
 
-## Step 6: BAM File Indexing
+### 6: BAM File Indexing
 
 ```bash
 for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
@@ -83,7 +83,7 @@ for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
 done
 ```
 
-## Step 7: Validate BAM File Headers
+### 7: Validate BAM File Headers
 
 ```bash
 samtools view -H ~/compbio/GSE46056_RNAseq/bam_files/SRR827457.bam
