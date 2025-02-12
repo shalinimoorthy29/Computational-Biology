@@ -7,13 +7,13 @@ This README describes the process of aligning FASTQ files to a reference genome 
 ## Step 1: Navigate to the Directory for Alignment
 
 ```bash
-cd ~/compbio/sratoolkit
+cd ~/compbio/GSE46056_RNAseq
 ```
 
 ## Step 2: Create a Directory for BAM Files
 
 ```bash
-mkdir ~/compbio/sratoolkit/test_bam_files
+mkdir ~/compbio/GSE46056_RNAseq/bam_files
 ```
 
 ## Step 3: Test Alignment for One FASTQ Pair
@@ -21,28 +21,28 @@ mkdir ~/compbio/sratoolkit/test_bam_files
 
 ```bash
 hisat2 -p 4 -x ~/compbio/hisat2_index/grch38/genome \
--1 ~/compbio/sratoolkit/test_fastq_files/SRR827457_1.fastq \
--2 ~/compbio/sratoolkit/test_fastq_files/SRR827457_2.fastq | \
-samtools view -bS - > ~/compbio/sratoolkit/test_bam_files/SRR827457.bam
+-1 ~/compbio/GSE46056_RNAseq/fastq_files/SRR827457_1.fastq \
+-2 ~/compbio/GSE46056_RNAseq/fastq_files/SRR827457_2.fastq | \
+samtools view -bS - > ~/compbio/GSE46056_RNAseq/bam_files/SRR827457.bam
 ```
 
 
 Remove the Test BAM File (Optional)
 
 ```bash
-rm ~/compbio/sratoolkit/test_bam_files/SRR827457.bam
+rm ~/compbio/GSE46056_RNAseq/bam_files/SRR827457.bam
 ```
 
 ## Step 4: Automate the Alignment for All FASTQ Pairs
 Use a loop to process all paired FASTQ files in the test_fastq_files directory and directly convert them to BAM files:
 
 ```bash
-for file in ~/compbio/sratoolkit/test_fastq_files/*_1.fastq; do
+for file in ~/compbio/GSE46056_RNAseq/fastq_files/*_1.fastq; do
     base=$(basename $file _1.fastq)
     hisat2 -p 4 -x ~/compbio/hisat2_index/grch38/genome \
-    -1 ~/compbio/sratoolkit/test_fastq_files/${base}_1.fastq \
-    -2 ~/compbio/sratoolkit/test_fastq_files/${base}_2.fastq | \
-    samtools view -bS - > ~/compbio/sratoolkit/test_bam_files/${base}.bam
+    -1 ~/compbio/GSE46056_RNAseq/fastq_files/${base}_1.fastq \
+    -2 ~/compbio/GSE46056_RNAseq/fastq_files/${base}_2.fastq | \
+    samtools view -bS - > ~/compbio/GSE46056_RNAseq/bam_files/${base}.bam
 done
 ```
 
@@ -54,13 +54,22 @@ Monitor Alignment Output (will look like this):
     2087594 (7.55%) aligned concordantly 0 times
     23931404 (86.58%) aligned concordantly exactly 1 time
     1621451 (5.87%) aligned concordantly >1 times
+    ----
+    2087594 pairs aligned concordantly 0 times; of these:
+      163721 (7.84%) aligned discordantly 1 time
+    ----
+    1923873 pairs aligned 0 times concordantly or discordantly; of these:
+      3847746 mates make up the pairs; of these:
+        2303600 (59.87%) aligned 0 times
+        1302803 (33.86%) aligned exactly 1 time
+        241343 (6.27%) aligned >1 times
 95.83% overall alignment rate
 ```
 
 ## Step 5: BAM File Sorting
 
 ```bash
-for bam in ~/compbio/sratoolkit/test_bam_files/*.bam; do
+for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
     samtools sort -o ${bam%.bam}.sorted.bam $bam
     mv ${bam%.bam}.sorted.bam $bam
 done
@@ -69,7 +78,7 @@ done
 ## Step 6: BAM File Indexing
 
 ```bash
-for bam in ~/compbio/sratoolkit/test_bam_files/*.bam; do
+for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
     samtools index $bam
 done
 ```
@@ -77,7 +86,7 @@ done
 ## Step 7: Validate BAM File Headers
 
 ```bash
-samtools view -H ~/compbio/sratoolkit/test_bam_files/SRR827457.bam
+samtools view -H ~/compbio/GSE46056_RNAseq/bam_files/SRR827457.bam
 ```
 
 Output will look like this:
@@ -92,7 +101,3 @@ Output will look like this:
 @PG     ID:samtools     PN:samtools     PP:hisat2       VN:1.19.2       CL:samtools view -bS -
 ...
 ```
-
-
-
-
