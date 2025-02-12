@@ -1,6 +1,6 @@
 # Generating BAM Files from FASTQ Files Using HISAT2
 
-## Step 1: Create HISAT2 Index Directory and Download Genome Index
+## 1: Create HISAT2 Index Directory and Download Genome Index
 
 ```bash
 mkdir -p ~/compbio/hisat2_index
@@ -8,20 +8,20 @@ cd ~/compbio/hisat2_index
 wget https://genome-idx.s3.amazonaws.com/hisat/grch38_genome.tar.gz
 ```
 
-## Step 2: Extract the Downloaded Genome Index
+### 2: Extract the Downloaded Genome Index
 
 ```bash
 tar -xzvf grch38_genome.tar.gz
 ```
 
-## Step 3: Create Directories for SAM and BAM Files
+### 3: Create Directories for SAM and BAM Files
 
 ```bash
 mkdir -p ~/compbio/GSE46056_RNAseq/sam_files
 mkdir -p ~/compbio/GSE46056_RNAseq/bam_files
 ```
 
-## Step 4: Install HISAT2 and SAMtools
+### 4: Install HISAT2 and SAMtools
 
 ```bash
 sudo apt update
@@ -30,7 +30,7 @@ hisat2 --version
 samtools --version
 ```
 
-## Step 5: Align Reads and Generate BAM Files Directly
+### 5: Align Reads and Generate BAM Files Directly
 
 ```bash
 for file in ~/compbio/GSE46056_RNAseq/fastq_files/*_1.fastq; do
@@ -42,7 +42,7 @@ for file in ~/compbio/GSE46056_RNAseq/fastq_files/*_1.fastq; do
 done
 ```
 
-## Step 6: Sort and Index BAM Files
+### 6: Sort and Index BAM Files
 
 ```bash
 for bam in ~/compbio/GSE46056_RNAseq/bam_files/*.bam; do
